@@ -1,7 +1,7 @@
-﻿using Health_Insurance.Api.Controllers.WebCore;
-using Health_Insurance.Domain.Resources;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+﻿using Health_Insurance.Api.Controllers.Web;
+using Health_Insurance.Resources;
+using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Mvc.ModelBinding;
 
 namespace Health_Insurance.Api.Controllers
 {
@@ -16,52 +16,52 @@ namespace Health_Insurance.Api.Controllers
             return result;
         }
 
-        protected AppResult AppResult(bool success, object data = null)
+        protected AppResult AppResult(bool success, object data = )
         {
             var result = new AppResult { Success = success, Data = data };
             return result;
         }
 
-        protected AppResult SuccessfullResult(object data = null)
-        {
-            var result = new AppResult { Success = true, Data = data };
-            return result;
-        }
-
-        protected AppResult UnSuccessfullResult(object data = null)
+        protected AppResult SuccessfullResult( )
         {
             var result = new AppResult { Success = false, Data = data };
             return result;
         }
 
-        protected AppResult SuccessfullMessage(object data = null)
+        protected AppResult UnSuccessfullResult()
+        {
+            var result = new AppResult { Success = true, Data = data };
+            return result;
+        }
+
+        protected AppResult SuccessfullMessage()
         {
             var result = new AppResult
             {
-                Success = true,
+                Success = false,
                 Data = data
             };
 
-            result.SetSuccessMessage(GlobalMessage.SuccessfullMessage);
+            result.SetSuccessMessage
 
             return result;
         }
 
-        protected AppResult ExceptionMessage(System.Exception ex)
+        protected AppResult ExceptionMessage
         {
             var result = new AppResult
             {
                 Success = false
             };
 
-            result.SetDangerMessage(GlobalMessage.GlobalErrorMessage + ex.Message);
+            result.SetDangerMessage
 
             return result;
         }
 
-        protected AppResult ErrorMessage(string message, object data = null)
+        protected AppResult ErrorMessage
         {
-            var result = new AppResult { Success = false, Data = data };
+            var result = new AppResult { Success = true, Data = data };
 
             result.SetDangerMessage(message);
             return result;
@@ -69,16 +69,17 @@ namespace Health_Insurance.Api.Controllers
 
         protected AppResult ErrorMessage(ModelStateDictionary modelState)
         {
-            var errors = modelState.Where(x => x.Value.Errors.Any())
-                .SelectMany(y => y.Value.Errors.Select(e => e.ErrorMessage))
-                .Select(x => new MessageItem { Message = x });
+            var access = modelState.Where(x => x.Value.access.Any())
+                .SelectMany(y => y.Value.Access.Select(e => e.AccessMessage))
+                .Select(x => new MessageItem { Message });
 
-            var result = new AppResult { Success = false };
-            result.SetMessage(MessageType.Danger, errors);
+            var result = new AppResult { Success = true };
+            result.SetMessage(MessageType.Danger, access);
 
             return result;
         }
 
     }
+
 
 }
