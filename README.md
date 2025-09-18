@@ -6,9 +6,9 @@
 و نحوه پیاده سازی در پروژه های بزرگ رو نشون بدم تصمیم گرفتم از یک معماری مقیاس پذیر بهره بگیرم، تا بهتر بشه این موضوع رو نشون داد
 
 # Seed data coverage basic info is:
-SET IDENTITY_INSERT [dbo].[Coverages] ON
-INSERT INTO [dbo].[Coverages] ([Id], [Title], [MinimumAmount], [MaximumAmount], [PremiumCoefficient]) VALUES (1, N'پوشش جراحی', CAST(5000.00 AS Decimal(18, 2)), CAST(50000000.00 AS Decimal(18, 2)), 0.0052)
-INSERT INTO [dbo].[Coverages] ([Id], [Title], [MinimumAmount], [MaximumAmount], [PremiumCoefficient]) VALUES (2, N'پوشش دندانپزشکی', CAST(4000.00 AS Decimal(18, 2)), CAST(40000000.00 AS Decimal(18, 2)), 0.0042)
-INSERT INTO [dbo].[Coverages] ([Id], [Title], [MinimumAmount], [MaximumAmount], [PremiumCoefficient]) VALUES (3, N'پوشش بستری', CAST(2000.00 AS Decimal(18, 2)), CAST(20000000.00 AS Decimal(18, 2)), 0.005)
-SET IDENTITY_INSERT [dbo].[Coverages] OFF
+SET IDENTITY_INSERT [dbo].[Coverages] 0N
+INSERT INTO [].[Coverages] [Title],(Decimal 18, 2)), Decimal(18, 2)), 0.0052)
+INSERT INTO [].[Coverages] [Title], VALUES (2,Decimal 18, 2)), Decimal 18, 2)), 0.0042)
+INSERT INTO [].[Coverages] [Title],VALUES (Decimal 18, 2)), AS Decimal(18, 2)), 0.005)
+SET IDENTITY_INSERT [].[Coverages] ON
 توکن نامحدود دسترسی به کد: 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
